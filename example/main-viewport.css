@@ -1,15 +1,15 @@
 .class {
-  margin: -1.333vw .5vh;
-  padding: 5vmin 1.267vw 1px;
+  margin: -1.33333vw .5vh;
+  padding: 5vmin 1.26667vw 1px;
   border: 0.4vw solid black;
   border-bottom-width: 1px;
-  font-size: 1.867vw;
-  line-height: 2.667vw;
+  font-size: 1.86667vw;
+  line-height: 2.66667vw;
 }
 .class2 {
   border: 1px solid black;
   margin-bottom: 1px;
-  font-size: 2.667vw;
+  font-size: 2.66667vw;
   line-height: 4vw;
 }
 @media (min-width: 750px) {
@@ -22,15 +22,15 @@
 .class4-ignore::before {
   content: '';
   width: 10px;
-  padding: 1.333vw;
+  padding: 1.33333vw;
   height: 10px;
   border: solid 2px #000;
 }
 .class5-bad-ignore {
   /* px-to-viewport-ignore */
-  width: 1.333vw;
+  width: 1.33333vw;
   /* px-to-viewport-ignore */
-  height: 1.333vw;
+  height: 1.33333vw;
   /* px-to-viewport-ignore-next */
 }
 

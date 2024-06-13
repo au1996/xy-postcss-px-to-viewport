@@ -6,7 +6,7 @@
 
 将 px 单位转换为视口单位的 (vw, vh, vmin, vmax) 的 [PostCSS](https://github.com/postcss/postcss) 插件.
 
-**支持 include 配置**
+## 支持 include 配置
 
 ## 简介
 
@@ -16,7 +16,7 @@
 
 ```css
 .class {
-  margin: -10px 0.5vh;
+  margin: -10px .5vh;
   padding: 5vmin 9.5px 1px;
   border: 3px solid black;
   border-bottom-width: 1px;
@@ -25,10 +25,6 @@
 }
 
 .class2 {
-  padding-top: 10px; /* px-to-viewport-ignore */
-  /* px-to-viewport-ignore-next */
-  padding-bottom: 10px;
-  /* Any other comment */
   border: 1px solid black;
   margin-bottom: 1px;
   font-size: 20px;
@@ -47,22 +43,19 @@
 
 ```css
 .class {
-  margin: -3.125vw 0.5vh;
-  padding: 5vmin 2.96875vw 1px;
-  border: 0.9375vw solid black;
+  margin: -1.33333vw .5vh;
+  padding: 5vmin 1.26667vw 1px;
+  border: 0.4vw solid black;
   border-bottom-width: 1px;
-  font-size: 4.375vw;
-  line-height: 6.25vw;
+  font-size: 1.86667vw;
+  line-height: 2.66667vw;
 }
 
 .class2 {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  /* Any other comment */
   border: 1px solid black;
   margin-bottom: 1px;
-  font-size: 6.25vw;
-  line-height: 9.375vw;
+  font-size: 2.66667vw;
+  line-height: 4vw;
 }
 
 @media (min-width: 750px) {
@@ -111,20 +104,20 @@ module.exports = {
 ```js
 {
   unitToConvert: 'px',
-  viewportWidth: 320,
-  unitPrecision: 5,
-  propList: ['*'],
   viewportUnit: 'vw',
   fontViewportUnit: 'vw',
-  selectorBlackList: [],
+  viewportWidth: 750,
+  unitPrecision: 5,
   minPixelValue: 1,
+  selectorBlackList: [],
+  propList: ['*'],
   mediaQuery: false,
   replace: true,
   exclude: undefined,
   include: undefined,
   landscape: false,
   landscapeUnit: 'vw',
-  landscapeWidth: 568
+  landscapeWidth: 425
 }
 ```
 
@@ -160,12 +153,12 @@ module.exports = {
 
 > `exclude`和`include`是可以一起设置的，将取两者规则的交集。
 
-#### Ignoring (需要翻译帮助。)
+#### 忽略示例
 
-You can use special comments for ignore conversion of single lines:
+您可以使用特殊注释来忽略单行的转换：
 
-- `/* px-to-viewport-ignore-next */` — on a separate line, prevents conversion on the next line.
-- `/* px-to-viewport-ignore */` — after the property on the right, prevents conversion on the same line.
+- `/* px-to-viewport-ignore-next */` — 在单独的行上，可防止在下一行进行转换。
+- `/* px-to-viewport-ignore */` — 在右侧的属性之后，防止在同一行进行转换。
 
 Example:
 
@@ -182,13 +175,13 @@ Example:
 /* example output: */
 .class {
   width: 10px;
-  padding: 3.125vw;
+  padding: 1.33333vw;
   height: 10px;
   border: solid 2px #000;
 }
 ```
 
-There are several more reasons why your pixels may not convert, the following options may affect this:
+还有多种原因导致您的像素无法转换，以下选项可能会影响此情况：
 `propList`, `selectorBlackList`, `minPixelValue`, `mediaQuery`, `exclude`, `include`.
 
 #### 直接在 gulp 中使用，添加 gulp-postcss

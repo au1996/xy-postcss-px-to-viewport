@@ -6,7 +6,7 @@ English | [中文](README_CN.md)
 
 A plugin for [PostCSS](https://github.com/postcss/postcss) that generates viewport units (vw, vh, vmin, vmax) from pixel units.
 
-**Support include configuration**
+## Support include configuration
 
 ## Demo
 
@@ -16,7 +16,7 @@ If your project involves a fixed width, this script will help to convert pixels 
 
 ```css
 .class {
-  margin: -10px 0.5vh;
+  margin: -10px .5vh;
   padding: 5vmin 9.5px 1px;
   border: 3px solid black;
   border-bottom-width: 1px;
@@ -25,10 +25,6 @@ If your project involves a fixed width, this script will help to convert pixels 
 }
 
 .class2 {
-  padding-top: 10px; /* px-to-viewport-ignore */
-  /* px-to-viewport-ignore-next */
-  padding-bottom: 10px;
-  /* Any other comment */
   border: 1px solid black;
   margin-bottom: 1px;
   font-size: 20px;
@@ -47,24 +43,19 @@ If your project involves a fixed width, this script will help to convert pixels 
 
 ```css
 .class {
-  margin: -3.125vw 0.5vh;
-  padding: 5vmin 2.96875vw 1px;
-  border: 0.9375vw solid black;
+  margin: -1.33333vw .5vh;
+  padding: 5vmin 1.26667vw 1px;
+  border: 0.4vw solid black;
   border-bottom-width: 1px;
-  font-size: 4.375vw;
-  line-height: 6.25vw;
+  font-size: 1.86667vw;
+  line-height: 2.66667vw;
 }
-
 .class2 {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  /* Any other comment */
   border: 1px solid black;
   margin-bottom: 1px;
-  font-size: 6.25vw;
-  line-height: 9.375vw;
+  font-size: 2.66667vw;
+  line-height: 4vw;
 }
-
 @media (min-width: 750px) {
   .class3 {
     font-size: 16px;
@@ -111,20 +102,20 @@ Default Options:
 ```js
 {
   unitToConvert: 'px',
-  viewportWidth: 320,
-  unitPrecision: 5,
-  propList: ['*'],
   viewportUnit: 'vw',
   fontViewportUnit: 'vw',
-  selectorBlackList: [],
+  viewportWidth: 750,
+  unitPrecision: 5,
   minPixelValue: 1,
+  selectorBlackList: [],
+  propList: ['*'],
   mediaQuery: false,
   replace: true,
   exclude: undefined,
   include: undefined,
   landscape: false,
   landscapeUnit: 'vw',
-  landscapeWidth: 568
+  landscapeWidth: 425
 }
 ```
 
@@ -182,7 +173,7 @@ Example:
 /* example output: */
 .class {
   width: 10px;
-  padding: 3.125vw;
+  padding: 1.33333vw;
   height: 10px;
   border: solid 2px #000;
 }

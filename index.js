@@ -10,7 +10,7 @@ var defaults = {
   viewportUnit: 'vw', // 转换后的单位
   fontViewportUnit: 'vw',  // 字体使用的视口单位
   viewportWidth: 750, // 标准视图宽度
-  unitPrecision: 3, // 转换后保留的精度
+  unitPrecision: 5, // 转换后保留的精度
   minPixelValue: 1, // 最小转换数值
   selectorBlackList: [], // 选择器黑名单列表
   propList: ['*'], // 能转换的属性列表；*代表所有
